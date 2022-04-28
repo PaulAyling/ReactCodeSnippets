@@ -1,18 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Pauls Snippets
-        </p>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+    };
+  }
 
-      </header>
-    </div>
-  );
+  componentDidMount() {
+    this.setState({ name: "Paul" }, () =>
+      console.log("STATE:SETTINGS:", this.state.settings)
+    );
+  }
+  render() {
+    return (
+      <div>
+        <h1>Snippet testing</h1>
+        <h2>logging state as it changes</h2>
+      </div>
+    );
+  }
 }
-
 export default App;
