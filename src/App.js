@@ -1,26 +1,36 @@
-import React from "react";
-import "./App.css";
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ name: "Paul" }, () =>
-      console.log("STATE:SETTINGS:", this.state.settings)
-    );
-  }
-  render() {
-    return (
-      <div>
-        <h1>Snippet testing</h1>
-        <h2>logging state as it changes</h2>
-      </div>
-    );
-  }
-}
+import React, { Component } from 'react'
+    
+class App extends Component { 
+  constructor(props){ 
+    super(props) 
+        
+    // Set initial state 
+    this.state = {greeting : 
+          'Click the button to receive greetings'} 
+        
+    // Binding this keyword 
+    this.updateState = this.updateState.bind(this) 
+  } 
+    
+  updateState(){ 
+    // Changing state 
+    this.setState({greeting : 
+                 'GeeksForGeeks welcomes you !!'}) 
+  } 
+      
+  render(){ 
+    return ( 
+      <div> 
+       <h2>Greetings Portal</h2>   
+       <p>{this.state.greeting}</p>
+      
+        {/* Set click handler */} 
+        <button onClick={this.updateState}> 
+          Click me!
+        </button> 
+      </div> 
+    ) 
+  } 
+} 
+    
 export default App;
